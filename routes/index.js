@@ -10,14 +10,11 @@ router.get('/', function(req, res, next) {
 
 /* GET rest Usuário. */
 router.get('/usuario', function(req, res, next) {
-  
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   	
   req.getConnection(function(err,connection){
 		 
   		 var sql = 'SELECT * FROM USUARIO';
-  		 
+
 		 connection.query(sql,[],function(err,result){
 		 if(err) return res.status(400).json(err);
 
@@ -25,6 +22,18 @@ router.get('/usuario', function(req, res, next) {
 
 		 });
 		});
+
+  res.end();
+
+});
+
+/* POST rest Usuário. */
+router.post('/add', function(req, res, next) {
+	
+  console.log(req.body);
+
+  res.end();
+  
 });
 
 module.exports = router;
