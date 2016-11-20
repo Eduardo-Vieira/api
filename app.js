@@ -25,11 +25,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //db conexão
-app.use(
+/*app.use(
    connection(mysql,{
      host: 'localhost',
      user: 'root',
      password : 'wr@123', // Senha do banco
+     port : 3306, //port mysql
+     database:'dbsysbeta' 
+   },'request')
+);*/
+
+app.use(
+   connection(mysql,{
+     host: 'localhost',
+     user: 'tucutu',
+     password : 'PHumSfAc500', // Senha do banco
      port : 3306, //port mysql
      database:'dbsysbeta' 
    },'request')
@@ -39,8 +49,6 @@ app.use(
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Content-Type', 'application/json');
-  res.header('Content-Type', 'application/x-www-form-urlencoded');
   next();
 });
 
